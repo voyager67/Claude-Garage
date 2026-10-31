@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "A startup crew for Claude Code: 13 specialist agents and 20 slash commands that take you from napkin idea to shipped, interactively.",
   "author": {
-    "name": "Your Name",
+    "name": "voyager67",
     "url": "https://github.com/voyager67"
   },
-  "homepage": "https://github.com/voyager67/claude-garage",
-  "repository": "https://github.com/voyager67/claude-garage",
+  "homepage": "https://github.com/voyager67/Claude-Garage",
+  "repository": "https://github.com/voyager67/Claude-Garage",
   "license": "MIT",
   "keywords": [
     "claude-code",

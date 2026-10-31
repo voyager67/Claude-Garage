@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 # One command to go live. Requires git and the GitHub CLI (gh), logged in via `gh auth login`.
-#   ./scripts/publish.sh <github-username> "<Your Name>"
+#   ./scripts/publish.sh <github-username> "<voyager67>"
 # No releases or tags are created.
 set -eu
 if [ "$#" -ne 2 ]; then
-  echo 'Usage: ./scripts/publish.sh <github-username> "<Your Name>"' >&2
+  echo 'Usage: ./scripts/publish.sh <github-username> "<voyager67>"' >&2
   exit 1
 fi
 USER_NAME="$1"

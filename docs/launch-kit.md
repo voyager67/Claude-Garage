@@ -4,7 +4,7 @@ Everything you need to publish Garage well. Honest note: nobody can promise star
 
 ## 1. Publish (5 minutes)
 Everything is already prepared: README with animated demo, banner, social preview PNG, topics, interactive site and starter issues. No releases are needed.
-- [ ] Run `./scripts/publish.sh <username> "<Your Name>"` (see PUBLISH.md)
+- [ ] Run `./scripts/publish.sh <username> "<voyager67>"` (see PUBLISH.md)
 - [ ] Upload `assets/social-preview.png` in Settings → General → Social preview
 - [ ] Pin the repo on your GitHub profile
 

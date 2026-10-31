@@ -18,7 +18,7 @@ ICONS = {
     "scout": "🔭", "pm": "🎯", "architect": "📐", "builder": "🔨", "gremlin": "👹", "sentinel": "🛡️",
     "critic": "🧐", "detective": "🕵️", "scribe": "✍️", "chief": "🧭", "pixel": "🎨", "rigger": "🏗️", "tester": "🧪",
 }
-SITE_URL = "https://github.com/YOUR_GITHUB_USERNAME/claude-garage"
+SITE_URL = "https://github.com/voyager67/claude-garage"
 
 
 def fm(path):

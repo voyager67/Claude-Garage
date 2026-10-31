@@ -9,11 +9,11 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-ffc857.svg?style=for-the-badge)](LICENSE)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-ff7a45?style=for-the-badge)](#-install)
-[![Stars](https://img.shields.io/github/stars/YOUR_GITHUB_USERNAME/claude-garage?style=for-the-badge&color=ffc857)](https://github.com/YOUR_GITHUB_USERNAME/claude-garage/stargazers)
+[![Stars](https://img.shields.io/github/stars/voyager67/claude-garage?style=for-the-badge&color=ffc857)](https://github.com/voyager67/claude-garage/stargazers)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-3fb950?style=for-the-badge)](CONTRIBUTING.md)
-[![Validate](https://img.shields.io/github/actions/workflow/status/YOUR_GITHUB_USERNAME/claude-garage/validate.yml?style=for-the-badge&label=validate)](.github/workflows/validate.yml)
+[![Validate](https://img.shields.io/github/actions/workflow/status/voyager67/claude-garage/validate.yml?style=for-the-badge&label=validate)](.github/workflows/validate.yml)
 
-[**🌐 Interactive site**](https://YOUR_GITHUB_USERNAME.github.io/claude-garage/) · [Install](#-install) · [Which command?](#-which-command-should-i-use) · [The crew](#-the-crew) · [Commands](#-commands) · [Lanes](#-three-lanes-s--m--l) · [Customize](#-make-it-yours) · [FAQ](#-faq)
+[**🌐 Interactive site**](https://voyager67.github.io/claude-garage/) · [Install](#-install) · [Which command?](#-which-command-should-i-use) · [The crew](#-the-crew) · [Commands](#-commands) · [Lanes](#-three-lanes-s--m--l) · [Customize](#-make-it-yours) · [FAQ](#-faq)
 
 <img src="assets/demo.svg" alt="Terminal demo: pitch, blueprint, sprint, break, audit" width="85%">
 
@@ -39,7 +39,7 @@ Every step leaves a small Markdown file in `.garage/`. Close the terminal, come 
 
 ```bash
 # inside Claude Code
-/plugin marketplace add YOUR_GITHUB_USERNAME/claude-garage
+/plugin marketplace add voyager67/claude-garage
 /plugin install garage@claude-garage
 ```
 
@@ -55,7 +55,7 @@ Then, in any project:
 <summary><b>⚡ One-line interactive installer (short command names, optional statusline)</b></summary>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/claude-garage/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/voyager67/claude-garage/main/install.sh | sh
 ```
 
 The installer asks a few yes/no questions: user-wide or this project only, the Garage statusline, experimental Agent Teams. Your `settings.json` is backed up before any change.
@@ -63,7 +63,7 @@ The installer asks a few yes/no questions: user-wide or this project only, the G
 Prefer to look first?
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/claude-garage.git
+git clone https://github.com/voyager67/claude-garage.git
 cd claude-garage
 ./scripts/install.sh              # interactive
 ./scripts/install.sh --yes        # defaults, no questions
@@ -316,7 +316,7 @@ PRs are very welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), keep agents narro
 
 ## 📄 License
 
-[MIT](LICENSE) © 2026 YOUR NAME. Free to use, modify and ship.
+[MIT](LICENSE) © 2026 Your Name. Free to use, modify and ship.
 
 <div align="center">
 

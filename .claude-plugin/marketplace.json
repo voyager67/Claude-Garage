@@ -1,0 +1,21 @@
+{
+  "name": "claude-garage",
+  "owner": {
+    "name": "YOUR NAME",
+    "url": "https://github.com/YOUR_GITHUB_USERNAME"
+  },
+  "plugins": [
+    {
+      "name": "garage",
+      "source": "./",
+      "description": "A startup crew for Claude Code: pitch, blueprint, sprint, break, audit, pr. 13 agents, 20 commands.",
+      "version": "1.0.0",
+      "category": "workflow",
+      "keywords": [
+        "agents",
+        "workflow",
+        "startup"
+      ]
+    }
+  ]
+}

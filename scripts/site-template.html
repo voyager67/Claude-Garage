@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Garage: a startup crew for Claude Code</title>
+<meta name="description" content="__NAGT__ agents, __NCMD__ commands. Pitch, blueprint, sprint, break, audit, launch. Open source Claude Code plugin.">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--text:#e6edf3;--mute:#8b949e;--a:#ff7a45;--b:#ffc857;--ok:#3fb950}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--bg:#fff;--card:#f6f8fa;--line:#d0d7de;--text:#1f2328;--mute:#59636e;--a:#e0561f;--b:#b7791f;--ok:#1a7f37}}
+:root[data-theme=light]{--bg:#fff;--card:#f6f8fa;--line:#d0d7de;--text:#1f2328;--mute:#59636e;--a:#e0561f;--b:#b7791f;--ok:#1a7f37}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 28px;text-align:center}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:.2em 0;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{color:var(--mute);font-size:1.15rem;margin:0 auto 22px;max-width:620px}
+.install{display:flex;gap:8px;max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 8px 8px 14px;align-items:center}
+.install code{flex:1;text-align:left;overflow:auto;white-space:nowrap;font:14px ui-monospace,Consolas,monospace;color:var(--b)}
+button,.btn{cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:8px;padding:8px 14px;font:inherit;text-decoration:none}
+button:hover,.btn:hover{border-color:var(--a)}
+.primary{background:var(--a);border-color:var(--a);color:#fff}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+section{padding:34px 0}
+h2{font-size:1.6rem;margin:0 0 6px}.sub{color:var(--mute);margin:0 0 18px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.chip{border-radius:999px;padding:5px 13px;font-size:.9rem}.chip[aria-pressed=true]{background:var(--a);border-color:var(--a);color:#fff}
+input[type=search]{width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;text-align:left}
+.card:hover{border-color:var(--a)}
+.card h3{margin:0;font:600 1rem ui-monospace,Consolas,monospace;color:var(--b)}
+.card p{margin:0;color:var(--mute);font-size:.93rem;flex:1}
+.ph{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--a)}
+.copied{color:var(--ok);font-size:.8rem;min-height:1em}
+.flow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:center;font:14px ui-monospace,Consolas,monospace}
+.flow b{background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:8px}.flow i{color:var(--mute);font-style:normal}
+.wiz{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.wiz .opts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.res{margin-top:14px;padding:14px;border-radius:10px;border:1px dashed var(--a)}
+.res code{color:var(--b);font:15px ui-monospace,Consolas,monospace}
+footer{border-top:1px solid var(--line);padding:26px 0 50px;text-align:center;color:var(--mute);font-size:.92rem}
+a{color:var(--a)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div style="text-align:right"><button id="theme" aria-label="Toggle theme">◐</button></div>
+  <h1>Claude <span>Garage</span></h1>
+  <p class="tag">Ship like a ten-person startup. Alone. From your terminal.<br><b>__NAGT__ agents · __NCMD__ commands · 0 config</b></p>
+  <div class="install"><code id="ins">/plugin marketplace add YOUR_GITHUB_USERNAME/claude-garage</code><button class="primary" data-copy="#ins">Copy</button></div>
+  <div class="row"><a class="btn" id="gh" href="#">★ Star on GitHub</a><a class="btn" href="#wizard">Which command?</a><a class="btn" href="#commands">Browse commands</a></div>
+</header>
+
+<section>
+  <h2>The flow</h2><p class="sub">Every step leaves a one-page Markdown file in <code>.garage/</code>, so you can resume anywhere.</p>
+  <div class="flow"><b>pitch</b><i>→</i><b>blueprint</b><i>→</i><b>sprint</b><i>→</i><b>break</b><i>→</i><b>audit</b><i>→</i><b>pr</b><i>→</i><b>retro</b></div>
+</section>
+
+<section id="wizard">
+  <h2>Which command should I use?</h2><p class="sub">Answer one question.</p>
+  <div class="wiz"><div id="q"></div><div id="res"></div></div>
+</section>
+
+<section id="commands">
+  <h2>Commands</h2><p class="sub">Click a card to copy the command.</p>
+  <div class="chips" id="chips"></div>
+  <input type="search" id="s" placeholder="Search commands, for example “bug”, “review”, “docs”…" aria-label="Search commands">
+  <div class="grid" id="grid"></div>
+</section>
+
+<section>
+  <h2>The crew</h2><p class="sub">Narrow agents with least-privilege tools.</p>
+  <div class="grid" id="crew"></div>
+</section>
+
+<footer>MIT licensed · <a id="gh2" href="#">GitHub</a> · If it saved you an afternoon, a ⭐ helps others find it.</footer>
+</div>
+<script>
+const D=/*__DATA__*/null;
+const $=s=>document.querySelector(s);
+$('#gh').href=$('#gh2').href=D.repo;
+const phaseOf={};for(const[p,cs]of Object.entries(D.phases))cs.forEach(c=>phaseOf[c]=p);
+let phase='All',q='';
+function copy(t,el){navigator.clipboard&&navigator.clipboard.writeText(t);if(el){const o=el.textContent;el.textContent='Copied ✓';setTimeout(()=>el.textContent=o,1200)}}
+document.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>copy($(b.dataset.copy).textContent,b));
+const chips=$('#chips');
+['All',...Object.keys(D.phases)].forEach(p=>{const b=document.createElement('button');b.className='chip';b.textContent=p;b.setAttribute('aria-pressed',p==='All');b.onclick=()=>{phase=p;[...chips.children].forEach(c=>c.setAttribute('aria-pressed',c===b));render()};chips.appendChild(b)});
+$('#s').oninput=e=>{q=e.target.value.toLowerCase();render()};
+function render(){const g=$('#grid');g.innerHTML='';
+ Object.entries(D.commands).filter(([c,v])=>(phase==='All'||phaseOf[c]===phase)&&(c+' '+v.d).toLowerCase().includes(q)).forEach(([c,v])=>{
+  const b=document.createElement('button');b.className='card';
+  b.innerHTML=`<span class="ph">${phaseOf[c]}</span><h3>/garage:${c}</h3><p>${v.d}</p><span class="copied"></span>`;
+  b.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText('/garage:'+c+' ');const m=b.querySelector('.copied');m.textContent='Copied ✓';setTimeout(()=>m.textContent='',1200)};
+  g.appendChild(b)});
+ if(!g.children.length)g.innerHTML='<p class="sub">No match. Try “/garage:guide” and let it ask you.</p>'}
+render();
+const crew=$('#crew');Object.entries(D.agents).forEach(([a,v])=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<h3>${v.i} ${a}</h3><p>${v.d}</p><span class="ph">tools: ${v.t}</span>`;crew.appendChild(d)});
+const tree={q:'What are you trying to do?',o:[
+ ['Build something new',{q:'How clear is the idea?',o:[['Fuzzy, I need to explore',['brainstorm','Generates three distinct options and helps you pick one.']],['Clear, let’s plan it',['pitch','One-page pitch with non-goals, kill criteria and a size.']],['Already planned, build it',['sprint','Parallel builders execute your plan in waves.']]]}],
+ ['Fix something broken',{q:'What kind of break?',o:[['A bug I can’t explain',['firefight','Competing hypotheses, root cause before fix.']],['Failing tests',['test','Run, investigate and fix, with no “pre-existing” excuses.']]]}],
+ ['Understand or clean up code',{q:'Which one?',o:[['I’m new to this repo',['recon','One-page map of the codebase.']],['Find its conventions',['patterns','Discover patterns and turn them into rules.']],['Clean it safely',['tidy','Behavior-preserving refactor, tests green each step.']]]}],
+ ['Check or ship my work',{q:'Where are you?',o:[['Before merging',['audit','Security, quality and tests in parallel, one verdict.']],['Ready for a PR',['pr','Clear PR description, never opened without you.']],['Docs are stale',['docs','Docs verified against the code.']]]}]]};
+function ask(n){$('#q').innerHTML=`<b>${n.q}</b><div class="opts"></div>`;const o=$('#q .opts');
+ n.o.forEach(([t,x])=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>Array.isArray(x)?done(x):ask(x);o.appendChild(b)})}
+function done([c,why]){$('#res').innerHTML=`<div class="res">Try <code>/garage:${c}</code><br><span class="sub">${why}</span><br><button id="cp">Copy command</button> <button id="rs">Start over</button></div>`;
+ $('#cp').onclick=e=>copy('/garage:'+c+' ',e.target);$('#rs').onclick=()=>{$('#res').innerHTML='';ask(tree)}}
+ask(tree);
+const th=$('#theme');th.onclick=()=>{const r=document.documentElement;const dark=(r.dataset.theme||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'))==='dark';r.dataset.theme=dark?'light':'dark'};
+</script>
+</body>
+</html>

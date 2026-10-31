@@ -1,0 +1,27 @@
+name: validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Docs are up to date
+        run: |
+          python3 scripts/build-docs.py
+          git diff --exit-code docs/ || (echo "Run python3 scripts/build-docs.py and commit docs/" && exit 1)
+      - name: Validate agents, skills, docs and manifests
+        run: python3 scripts/validate.py
+      - name: Shell syntax check
+        run: |
+          sh -n install.sh
+          sh -n scripts/install.sh
+          sh -n scripts/personalize.sh
+          sh -n scripts/publish.sh
+      - name: Statusline smoke test
+        run: echo '{}' | python3 statusline/garage-statusline.py

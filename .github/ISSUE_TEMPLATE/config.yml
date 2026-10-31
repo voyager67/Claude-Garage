@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ideas and questions
+    url: https://github.com/YOUR_GITHUB_USERNAME/claude-garage/discussions
+    about: Ask questions and share ideas in Discussions.
